@@ -1,0 +1,61 @@
+{
+  "name": "Dream See Do - Dev Challenge",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-react": "^7.10.4",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "react": "^16.13.1",
+    "styled-components": "^5.1.1",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0",
+    "enzyme": "^3.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.1.0",
+    "jest-enzyme": "^7.1.2",
+    "prettier": "^2.0.5"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true
+  },
+  "jest": {
+    "resetMocks": true,
+    "automock": false,
+    "setupFilesAfterEnv": [
+      "<rootDir>/__tests__/__config__/setup.js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "\\.(png|svg|otf)$": "<rootDir>/__tests__/__config__/stub.js"
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript/src",
+      "__tests__",
+      "types",
+      "<rootDir>"
+    ],
+    "testRegex": "__tests__/.*\\.test\\.jsx?$",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
+}
