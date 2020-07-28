@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Button } from '@material-ui/core'
+import { Box, Button, Typography } from '@material-ui/core'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const Course = styled.div`
+const CourseBox = styled.div`
   background-color: #cccccc;
+  padding: 10px;
+  border-radius: 4px;
 `
 
-const CourseDetail = (course) => {
-  console.log('course', course)
+const CourseDetail = ({ course }) => {
   return (
-    <Course>
-      <h1>{course.name}</h1>
+    <CourseBox mt={2} mb={2}>
+      <Typography variant="h4">{course.name}</Typography>
       <Button>Start Course</Button>
-    </Course>
+    </CourseBox>
   )
 }
 
-const CourseList = ({}) => {
+const CourseList = () => {
   const [loading, setLoading] = useState(true)
   const [courses, setCourses] = useState([])
 
   useEffect(() => {
     const loadCourses = async () => {
       const response = await axios.get('api/v1/courses')
-      console.log('response', response.data)
       setCourses(response.data)
       setLoading(false)
     }
@@ -33,9 +33,9 @@ const CourseList = ({}) => {
 
   return (
     <Box>
-      {loading && <h5>Loading Courses...</h5>}
+      {loading && <Typography variant="h4">Loading Courses...</Typography>}
       {courses.map((course) => (
-        <CourseDetail course={course} />
+        <CourseDetail key={course.id} course={course} />
       ))}
     </Box>
   )

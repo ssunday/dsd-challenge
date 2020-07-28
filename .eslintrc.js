@@ -82,14 +82,6 @@ module.exports = {
     // to the current code
     'react/prop-types': 'off',
     'space-before-function-paren': 0,
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        specialLink: ['to', 'hrefLeft', 'hrefRight'],
-        aspects: ['noHref', 'invalidHref', 'preferButton'],
-      },
-    ],
     'react-in-jsx-scope': 0,
     'react/jsx-filename-extension': 0,
     'react/prefer-stateless-function': 0,
