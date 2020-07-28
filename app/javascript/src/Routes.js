@@ -2,13 +2,13 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/styles'
 
-import Header from '~/components/Header'
-import Course from '~/pages/Course'
-import CourseList from '~/pages/CourseList'
-import Home from '~/pages/Home'
-import Response from '~/pages/Response'
-import User from '~/pages/User'
-import theme from '~/theme'
+import Header from './components/Header'
+import Course from './pages/Course'
+import CourseList from './pages/CourseList'
+import Home from './pages/Home'
+import Response from './pages/Response'
+import User from './pages/User'
+import theme from './theme'
 
 export default function App() {
   return (

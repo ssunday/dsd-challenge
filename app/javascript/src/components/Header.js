@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { AppBar, Toolbar, Typography, Grid } from '@material-ui/core'
 import styled from 'styled-components'
 
-import { colors } from '~/theme'
+import { colors } from '../theme'
 
 const NavLink = styled(Link)`
   display: inline-block;

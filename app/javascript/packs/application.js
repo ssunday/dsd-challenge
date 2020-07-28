@@ -2,7 +2,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Routes from '~/Routes'
+import 'regenerator-runtime/runtime'
+import Routes from '../src/Routes'
 
 const RenderApp = (inner) => {
   ReactDOM.render(
