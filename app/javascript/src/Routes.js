@@ -16,21 +16,11 @@ export default function App() {
       <Router>
         <Header />
         <Switch>
-          <Route path="/responses/:id">
-            <Response />
-          </Route>
-          <Route path="/courses/:id">
-            <Course />
-          </Route>
-          <Route path="/courses">
-            <CourseList />
-          </Route>
-          <Route path="/users/:id">
-            <User />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/responses/:id" component={Response} />
+          <Route path="/courses/:id" component={Course} />
+          <Route path="/courses" component={CourseList} />
+          <Route path="/users/:id" component={User} />
+          <Route path="/" component={Home} />
         </Switch>
       </Router>
     </ThemeProvider>
