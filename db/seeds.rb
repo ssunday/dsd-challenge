@@ -3,7 +3,7 @@
 
 [
   ['Knitting for Dogs', 'margarida-afonso-ahMCpXdUjv0-unsplash.jpg'],
-  ['Living a Purpose Life', 'jamie-street-_94HLr_QXo8-unsplash.jpg'],
+  ['Living a Purposeful Life', 'jamie-street-_94HLr_QXo8-unsplash.jpg'],
   ['Entrepreneurship for Llamas', 'garrhet-sampson-CmF_5GYc6c0-unsplash.jpg'],
   ['No-nonsense Cat Napping', 'lauren-kay-wUMfrBfNNq0-unsplash.jpg'],
   ['Healthy Eating for Koalas', 'sara-cervera-cjiJUfFCoUs-unsplash.jpg']

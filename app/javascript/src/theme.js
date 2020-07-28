@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
-const baseColors = {
+export const colors = {
   green: '#5bc3a6',
   ltGray: '#ececec',
   midGray: '#c1c1c1',
@@ -13,10 +13,13 @@ const baseColors = {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: baseColors.green,
+      main: colors.green,
     },
     secondary: {
-      main: baseColors.dkGray,
+      main: colors.dkGray,
+    },
+    navLink: {
+      main: colors.white,
     },
   },
 })
