@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 
 const Header = () => {
   return (
@@ -16,7 +16,6 @@ const Header = () => {
         <Link to="/users/me">
           <Typography variant="body1">My Account</Typography>
         </Link>{' '}
-        <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>
   )

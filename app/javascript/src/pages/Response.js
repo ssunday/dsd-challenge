@@ -1,16 +1,17 @@
 import React from 'react'
-import { Box, Grid } from '@material-ui/core'
+import { Box, Grid, Typography } from '@material-ui/core'
 
-const Response = ({}) => {
+const Response = ({ course, response }) => {
   return (
     <Box>
       <Grid container spacing={1}>
         <Grid container item xs={4}>
-          <h1>{response.course.name}</h1>
-          [...steps...]
+          <Typography variant="h3">{course.name}</Typography>
+          Started by {response.user.name}
+          {/* List steps here */}
         </Grid>
         <Grid container item xs={8}>
-          Current Step
+          {/* Show current step here */}
         </Grid>
       </Grid>
     </Box>

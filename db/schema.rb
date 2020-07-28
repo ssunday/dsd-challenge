@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_230433) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
+    t.text "image_url"
     t.integer "price"
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
