@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from 'material-ui'
+import { AppBar, Box } from '@material-ui/core'
 
 const Home = ({}) => {
   return (

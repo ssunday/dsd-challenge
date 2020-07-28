@@ -1,9 +1,10 @@
-module.exports = function(api) {
+module.exports = function (api) {
   var validEnv = ['development', 'test', 'production']
   var currentEnv = api.env()
   var isDevelopmentEnv = api.env('development')
   var isProductionEnv = api.env('production')
   var isTestEnv = api.env('test')
+  var corejsVersion = '3.2'
 
   if (!validEnv.includes(currentEnv)) {
     throw new Error(
@@ -18,55 +19,101 @@ module.exports = function(api) {
   return {
     presets: [
       isTestEnv && [
-        '@babel/preset-env',
+        require('@babel/preset-env').default,
         {
+          useBuiltIns: 'usage',
+          corejs: corejsVersion,
           targets: {
-            node: 'current'
-          }
-        }
+            node: 'current',
+          },
+        },
       ],
       (isProductionEnv || isDevelopmentEnv) && [
-        '@babel/preset-env',
+        require('@babel/preset-env').default,
         {
+          useBuiltIns: 'usage',
+          corejs: corejsVersion,
           forceAllTransforms: true,
           useBuiltIns: 'entry',
-          corejs: 3,
           modules: false,
-          exclude: ['transform-typeof-symbol']
-        }
-      ]
+          exclude: ['transform-typeof-symbol'],
+          targets: {
+            browsers: [
+              '> 1%',
+              'last 2 firefox versions',
+              'last 2 chrome versions',
+              'last 2 safari versions',
+              'edge 15-16',
+              'ie 11',
+            ],
+          },
+        },
+      ],
+      [
+        require('@babel/preset-react').default,
+        {
+          development: isDevelopmentEnv || isTestEnv,
+          useBuiltIns: true,
+        },
+      ],
     ].filter(Boolean),
     plugins: [
-      'babel-plugin-macros',
-      '@babel/plugin-syntax-dynamic-import',
-      isTestEnv && 'babel-plugin-dynamic-import-node',
-      '@babel/plugin-transform-destructuring',
+      require('babel-plugin-macros'),
+      require('@babel/plugin-syntax-dynamic-import').default,
+      isTestEnv && require('babel-plugin-dynamic-import-node'),
+      require('@babel/plugin-transform-destructuring').default,
+      require('@babel/plugin-proposal-optional-chaining').default,
+      require('@babel/plugin-proposal-nullish-coalescing-operator').default,
       [
-        '@babel/plugin-proposal-class-properties',
+        require('@babel/plugin-proposal-class-properties').default,
         {
-          loose: true
-        }
+          loose: true,
+        },
       ],
       [
-        '@babel/plugin-proposal-object-rest-spread',
+        require('@babel/plugin-proposal-object-rest-spread').default,
         {
-          useBuiltIns: true
-        }
+          useBuiltIns: true,
+        },
       ],
       [
-        '@babel/plugin-transform-runtime',
+        require('@babel/plugin-transform-runtime').default,
         {
           helpers: false,
           regenerator: true,
-          corejs: false
-        }
+        },
       ],
       [
-        '@babel/plugin-transform-regenerator',
+        require('@babel/plugin-transform-regenerator').default,
         {
-          async: false
-        }
-      ]
-    ].filter(Boolean)
+          async: false,
+        },
+      ],
+      isProductionEnv && [
+        require('babel-plugin-transform-react-remove-prop-types').default,
+        {
+          removeImport: true,
+        },
+      ],
+      isProductionEnv && require('babel-plugin-lodash').default,
+      [
+        require('babel-plugin-styled-components').default,
+        { displayName: !isProductionEnv },
+      ],
+      [
+        require('babel-plugin-module-resolver').default,
+        {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          alias: {
+            '~stylesheets': './app/assets/stylesheets',
+            '~images': './app/assets/images',
+            '~mocks': './__tests__/__mocks__',
+            '~fonts': './app/assets/fonts',
+            '^~(.+)': './app/javascript/src/\\1',
+          },
+        },
+      ],
+      require('react-hot-loader/babel').default,
+    ].filter(Boolean),
   }
 }

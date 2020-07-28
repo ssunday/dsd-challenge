@@ -23,12 +23,10 @@ ActiveRecord::Schema.define(version: 2020_07_27_230433) do
   create_table "responses", force: :cascade do |t|
     t.integer "course_id"
     t.integer "user_id"
-    t.integer "status", default: 0
     t.datetime "completed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_responses_on_course_id"
-    t.index ["user_id"], name: "index_responses_on_user_id"
+    t.index ["course_id", "user_id", "completed_at"], name: "index_responses_on_course_id_and_user_id_and_completed_at"
   end
 
   create_table "steps", force: :cascade do |t|

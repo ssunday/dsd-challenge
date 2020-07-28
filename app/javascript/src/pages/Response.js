@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Grid } from 'material-ui'
+import { Box, Grid } from '@material-ui/core'
 
 const Response = ({}) => {
   return (
@@ -12,9 +12,9 @@ const Response = ({}) => {
         <Grid container item xs={8}>
           Current Step
         </Grid>
-      </Container>
+      </Grid>
     </Box>
   )
 }
 
-export default Course
+export default Response
