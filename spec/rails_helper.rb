@@ -33,6 +33,8 @@ RSpec.configure do |config|
   # Unfortunately they don't work on request specs in our version of Devise
   config.include FactoryBot::Syntax::Methods
 
+  config.include RequestHelpers, type: :request
+
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
@@ -51,22 +53,21 @@ RSpec.configure do |config|
   config.before(:suite) do
     # Ensure all time parsing from strings are done in a time zone
     Time.zone = "Pacific Time (US & Canada)"
+    DatabaseCleaner.clean_with :truncation, { except: %w[schema_migrations] }
   end
 
   config.after(:suite) do
     # Clean carrierwave file uploads
     FileUtils.rm_rf(Dir["#{Rails.root}/spec/tmp/uploads/*"])
   end
-
   config.before(:each) do
     ActionMailer::Base.deliveries.clear
+    DatabaseCleaner.start
   end
-end
 
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
+  # Clean the database after each example:
+  config.append_after(:each) do
+    DatabaseCleaner.clean
   end
 end
 

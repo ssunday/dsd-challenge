@@ -8,9 +8,15 @@
   ['No-nonsense Cat Napping', 'lauren-kay-wUMfrBfNNq0-unsplash.jpg'],
   ['Healthy Eating for Koalas', 'sara-cervera-cjiJUfFCoUs-unsplash.jpg']
 ].each do |data|
-  Course.create(
+  course = Course.create(
     name: data[0],
     status: :published,
     image_url: "https://s3.amazonaws.com/assets.dreamseedo.org/challenge/#{data[1]}"
   )
+  1.upto(3).each do |i|
+    course.steps.create(
+      name: "Step #{i}",
+      order: i - 1
+    )
+  end
 end

@@ -82,6 +82,7 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    database_cleaner (1.8.5)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -93,6 +94,8 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     fuubar (2.5.0)
       rspec-core (~> 3.0)
@@ -262,8 +265,10 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  database_cleaner
   dotenv-rails
   factory_bot_rails
+  faker
   fuubar
   jbuilder (~> 2.7)
   listen (~> 3.2)
