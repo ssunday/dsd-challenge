@@ -3,7 +3,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'spec_helper'
-require File.expand_path("../config/environment", __dir__)
+require File.expand_path('../config/environment', __dir__)
 
 # Fix bug with spring and simplecov
 # https://github.com/colszowka/simplecov/issues/381#issuecomment-347651728
@@ -26,7 +26,7 @@ require 'rspec/rails'
 # of increasing the boot-up time by auto-requiring all files in the support
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   # Include devise helper methods
@@ -40,7 +40,7 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
-  config.example_status_persistence_file_path = "tmp/rspec_failures.txt"
+  config.example_status_persistence_file_path = 'tmp/rspec_failures.txt'
 
   config.infer_spec_type_from_file_location!
 
@@ -48,11 +48,11 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = 'random'
 
   config.before(:suite) do
     # Ensure all time parsing from strings are done in a time zone
-    Time.zone = "Pacific Time (US & Canada)"
+    Time.zone = 'Pacific Time (US & Canada)'
     DatabaseCleaner.clean_with :truncation, { except: %w[schema_migrations] }
   end
 

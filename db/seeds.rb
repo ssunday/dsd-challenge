@@ -20,3 +20,9 @@
     )
   end
 end
+
+User.create!(
+  first_name: 'Bob',
+  last_name: 'Jones',
+  email: 'foobar@example.com'
+)
