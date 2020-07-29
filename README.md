@@ -22,16 +22,24 @@ Finally, confirm that everything is working by starting up webpacker and a Rails
 
 ```
 bin/webpack-dev-server
-rails s
+bin/rails s
 ```
 
 Navigate over to http://localhost:3000 in your browser and you should see the Dream See Do app.
 
 👏 **Congrats, you're ready to build now!**
 
+Find test user at [http://localhost:3000/users/1](http://localhost:3000/users/1)
 
 ## Testing
 
 `yarn test`
 
 `bundle exec rspec`
+
+
+## Linting
+
+`bundle exec rubocop -a`
+
+`yarn run lint`
